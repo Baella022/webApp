@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% block css %}
+<style>
+  .text-container {
+    width: 60%;
+    float: right;
+    padding: 20px;
+  }
+  
+  .image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circular-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  body {
+    background-color: tomato;
+  }
+
+  h1, h2, p {
+    color: black; /* Set the text color to black */
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="text-container">
+    <h1>Welcome to Pikinini Science</h1>
+    <p>Where knowledge is made accessible through interactive videos and comprehensive notes.</p>
+    <p>Pikinini Science is dedicated to helping students in Papua New Guinea broaden their learning to the next level.</p>
+  </div>
+  <div class="image-container">
+    <img src="static/images/learning.jpg" alt="Image" class="circular-image">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="orange" />
+      <a href="{{ url_for('views.grade3') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 3</text>
+      </a>
+    </svg>
+  </div>
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="purple" />
+      <a href="{{ url_for('views.grade4') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 4</text>
+      </a>
+    </svg>
+  </div>
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="blue" />
+      <a href="{{ url_for('views.grade5') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 5</text>
+      </a>
+    </svg>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="red" />
+      <a href="{{ url_for('views.grade6') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 6</text>
+      </a>
+    </svg>
+  </div>
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="yellow" />
+      <a href="{{ url_for('views.grade7') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 7</text>
+      </a>
+    </svg>
+  </div>
+  <div class="col-md-4">
+    <svg width="400" height="200">
+      <rect x="10" y="10" width="380" height="180" fill="teal" />
+      <a href="{{ url_for('views.grade8') }}">
+        <text x="50%" y="50%" font-size="40" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">Grade 8</text>
+      </a>
+    </svg>
+  </div>
+</div>
+
+{% endblock %}

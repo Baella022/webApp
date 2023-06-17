@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  margin-bottom: 10px;
+}
+
+.navbar a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Style the active link */
+.navbar a.active {
+  background-color: #ddd;
+}
+
+/* Style the section headers */
+h2 {
+  margin-top: 50px;
+}
+
+/* Add some space between sections */
+section {
+  margin-bottom: 500px;
+}

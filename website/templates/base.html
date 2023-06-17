@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}Home{% endblock %}</title>
+  {% block css %}
+  <!-- CSS files -->
+ 
+  {% endblock %}
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background: black;
+      color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+    
+    /* Set the background color of the body to green */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Set the minimum height of the body to 100% of the viewport height */
+      background-color: #98FF98;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+
+    .container-fluid {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-left: 2cm;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      flex: 1; /* Fill the remaining vertical space */
+      height: auto; /* Remove fixed height */
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #FFC0CB;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text, and some padding */
+    footer {
+      background-color: black;
+      color: white;
+      padding: 15px;
+      margin-top: auto; /* Push the footer to the bottom */
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+    
+    /* Adjust content padding for better readability */
+    .container-fluid {
+      padding: 20px;
+    }
+    
+    /* Adjust font sizes for better readability on smaller screens */
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 24px;
+    }
+    
+    /* Adjust margin between sections */
+    section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>PikininiScience</h1>
+</header>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a class="nav-item nav-link" id="home" href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a class="nav-item nav-link" id="signup" href="/signup">Sign Up</a></li>
+        <li><a class="nav-item nav-link" id="logout" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %} 
+  {% if messages %} 
+    <!-- Flash messages code -->
+    {% for category, message in messages %} 
+      {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissable fade in" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% else %}
+        <div class="alert alert-success alert-dismissable fade in" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<div class="container-fluid">
+  <div class="row content">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  &copy; 2023 Pikinini Science Website. All rights reserved.
+</footer>
+
+<!-- JavaScript files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

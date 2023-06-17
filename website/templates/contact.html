@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h3>Contact Us</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <form method="POST" action="{{ url_for('views.contact') }}">
+        {{ csrf_token }}
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h4>Contact Information</h4>
+      <p>411 Unitech PNG East Taraka</p>
+      <p>Lae, Morobe</p>
+      <p>Phone: (123) 456-7890</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
